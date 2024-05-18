@@ -54,6 +54,7 @@ from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin
 from sklearn.base import is_classifier
 from sklearn.metrics import f1_score
 from sklearn.utils.validation import  check_is_fitted
+from sklearn.utils.multiclass import unique_labels
 from sklearn.exceptions import NotFittedError
 
 from .config import model2config
