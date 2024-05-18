@@ -333,6 +333,8 @@ class BaseBertEstimator(BaseEstimator):
         texts_a, texts_b, labels = unpack_data(X, y)
         self.input_text_pairs = not texts_b is None
 
+        self.classes_ = unique_labels(y)
+        
         if is_classifier(self):
             # if the label_list not specified, then infer it from training data
             if self.label_list is None:
