@@ -372,7 +372,8 @@ class BaseBertEstimator(BaseEstimator):
 
         # finetune model!
         self.model = finetune(self.model, texts_a, texts_b, labels, config)
-
+        self.model.to("cpu")
+        
         return self
 
     def setup_eval(self, texts_a, texts_b, labels):
