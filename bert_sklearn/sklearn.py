@@ -372,7 +372,6 @@ class BaseBertEstimator(BaseEstimator):
 
         # finetune model!
         self.model = finetune(self.model, texts_a, texts_b, labels, config)
-        self.model.to("cpu")
         
         return self
 
@@ -519,7 +518,6 @@ class BertClassifier(BaseBertEstimator, ClassifierMixin):
             prob = prob.detach().cpu().numpy()
             probs.append(prob)
         sys.stdout.flush()
-        self.model.to("cpu")
         return np.vstack(tuple(probs))
 
     def predict(self, X):
