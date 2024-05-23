@@ -519,6 +519,7 @@ class BertClassifier(BaseBertEstimator, ClassifierMixin):
             prob = prob.detach().cpu().numpy()
             probs.append(prob)
         sys.stdout.flush()
+        self.model.to("cpu")
         return np.vstack(tuple(probs))
 
     def predict(self, X):
